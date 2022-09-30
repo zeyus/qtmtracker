@@ -22,6 +22,12 @@ MARKER_INDICES: tuple = (
     9,
 )
 
+# Labels are just for reference
+# they are optional, as right now, there
+# is no way to get the marker names from QTM
+# but I will invistigate a workaround,
+# as label matching is easier than index matching
+# for users.
 MARKER_LABELS: tuple = (
     "Marker A Name",	
     "Marker B Name",
@@ -43,7 +49,7 @@ def print_example_info(tracker: qtmtracker.QTMTracker) -> bool:
     # or we can get a marker by it's QTM index
     marker_history_2: qtmtracker.PositionHistory = tracker.markers.get(MARKER_INDICES[1])
 
-    # Now rint the current position of a specific marker.
+    # Now print the current position of a specific marker.
     print(f"{marker_history_2} current coordinates: {marker_history_2.last()}")
     # or
     x, y, z = marker_history_2.last()
